@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="gapi-interface.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<title>Youtube Channel Report</title>
+</head>
+
+<body class="new1">
+	<div class="top-ttl">
+		<h1 >Get free insights with our YouTube Analyser</h1>
+		<p class="tp-txt">Understand your channel and grow your views, subscribers and revenues </p> 
+	</div>
+	
+
+
+	<button id="sign-in-or-out-button"
+					style="margin-left: 0px">Sign In/Authorize</button>
+	<button id="revoke-access-button"
+					style="display: none; margin-left: 0px">Revoke access</button>
+  <!--<button id="run-analysis-button"-->
+          <!--style="display: none; margin-left: 25px">Show me the goods!</button>-->
+
+	<div id="auth-status" style="display: inline; padding-left: 25px"></div>
+
+  <hr/>
+<div id="mc_embed_signup" class="" style="display: none">
+  
+  <div class="col-md-12">
+    <div class="row">
+      
+        <h3>Channel analysis for <span id="channelid"></span></h3><!-- <div class="col-md-3" id="channelid">Unknown</div> -->
+      </div>
+    <div class="row">
+      <div class="col-md-2 col-xs-2 yclr rst-ttl">Metric</div>
+      <div class="col-md-2 col-xs-2 yclr rst-ttl">Benchmark</div>
+      <div class="col-md-3 col-xs-3 yclr rst-ttl">Result</div>
+      <div class="col-md-5 col-xs-2 yclr rst-ttl">Advice</div>
+    </div>
+<!-- Removed for now
+    <div class="row">
+      <div class="col-md-2" for="views-to-subs">Ratio of views to subscribers</div>
+      <div class="col-md-3" id="views-to-subs">Uncalculated</div>
+      <div class="alert col-md-6" id="views-to-subs-success">
+        You’re nailing it - this is a good indicator that you are providing value to your most loyal viewers. On average you should see 140 views for every 1,000 subscribers you have i.e. an average ratio of views:subscribers of 14% or more.
+      </div>
+      <div class="alert col-md-6" id="views-to-subs-warning">
+        You need to up your game. On average you should see 140 views for every 1,000 subscribers you have i.e. an average ratio of views:subscribers of 14%. Your score here is a good indicator that you are not providing enough value to your most loyal viewers. Have a re-think about your content strategy and what you are producing, and how to provide more value to your subscribers.
+      </div>
+    </div>
+-->
+    <div class="row">
+      <div class="col-md-2  col-xs-2">Ratio of likes to views</div>
+      <div class="col-md-2  col-xs-2">4%</div>
+      <div class="col-md-3  col-xs-3" id="likes-to-views">Uncalculated</div>
+      <div class="alert col-md-5  col-xs-5" id="likes-to-views-success">
+        Your videos are popular with your audience - keep doing what you’re doing! Your viewers - and in particular your subscribers - will take the time to like your videos if they enjoy them.
+      </div>
+      <div class="alert col-md-5  col-xs-5" id="likes-to-views-warning">
+        <p class="rst-cmt"> Your viewers - and in particular your subscribers - will take the time to like your videos if they enjoy them. Try a different approach to your creative, or ask your viewers to like your content if they enjoy it.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2  col-xs-2">Ratio of comments to views</div>
+      <div class="col-md-2 col-xs-2">0.50%</div>
+      <div class="col-md-3 col-xs-3" id="comments-to-views">Uncalculated</div>
+      <div class="alert col-md-5 col-xs-5" id="comments-to-views-success">
+        Nice work! Your viewers are engaging with your content which is a good measure of success.
+      </div>
+      <div class="alert col-md-5  col-xs-5" id="comments-to-views-warning">
+        <p class="rst-cmt">Your videos need to be more engaging. Try a different approach to your creative, or ask your viewers to comment on your content if they are enjoying it.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-xs-2">Subscribers growth</div>
+      <div class="col-md-2 col-xs-2">20%</div>
+      <div class="col-md-3 col-xs-3" id="subscribers-gained">Uncalculated</div>
+      <div class="alert col-md-5 col-xs-5" id="subscribers-gained-success">
+        Nailing it! Subscribers matter because they spend more time watching your channel than viewers non-subscribers. And we know that more watch time for your channel means you are more likely to turn up in search results and recommendations.
+      </div>
+      <div class="alert col-md-5 col-xs-5" id="subscribers-gained-warning">
+        <p class="rst-cmt">Subscribers matter because they spend more time watching your channel. More watch time for your channel means you are more likely to turn up in search results and recommendations. Promote your channel on social media, ask your viewers to subscribe, interact with them in the comments, and try and deliver better content.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2 col-xs-2">Average Completion Rate</div>
+      <div class="col-md-2 col-xs-2">50%</div>
+      <div class="col-md-3 col-xs-3" id="average-view-percentage">Unknown </div>
+      <div class="alert col-md-5  col-xs-5" id="average-view-percentage-success">
+        Your viewers are watching less than half of your videos - try and do better at maintaining their interest. Look at teasing what's coming up, experimenting with shorter videos, and keeping the pace moving.
+      </div>
+      <div class="alert col-md-5  col-xs-5" id="average-view-percentage-warning">
+       <p class="rst-cmt"> Your viewers are watching more than half of your videos - you're doing a nice job of maintaining their interest.  Try and drive this as close to 100% as you can - tease what's coming up, experiment with shorter videos, and keep the pace moving.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2  col-xs-2">Youtube searches</div>
+      <div class="col-md-2  col-xs-2">10%</div>
+      <div class="col-md-3  col-xs-3" id="youtube-searches">Unknown </div>
+      <div class="alert col-md-5  col-xs-5" id="youtube-searches-success">
+        Nice one! YouTube is the world’s second largest search engine, and this is therefore a huge (and free!) opportunity to drive views, especially for new channels.
+      </div>
+      <div class="alert col-md-5  col-xs-5" id="youtube-searches-warning">
+        <p class="rst-cmt">YouTube is the world’s second largest search engine, so this is a huge opportunity to drive views - especially for new channels. Optimise your content better for search - update your tags, and use best practices for video titles, thumbnails, and descriptions.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-2  col-xs-2">Most viewed video</div>      
+      <div class="col-md-5  col-xs-5" id="most-watched">Unknown</div>
+	  <div class="alert col-md-4  col-xs-4" id="most-watched-success">
+        <p class="rst-cmt"> This is your most viewed video from your channel. Take notes! Why has it performed better than others? How can you make more like this? And most importantly - always remember to celebrate your wins.</p>
+      </div>
+    </div>
+	
+	
+    <!--<div class="row">-->
+      <!--<div class="col-md-3" for="estimated-revenue">Revenue</div>-->
+      <!--<div class="col-md-8" id="estimated-revenue">Uncalculated</div>-->
+    <!--</div>-->
+  </div>
+  </div>
+
+
+
+	<script type='text/javascript' src='gapi-init.js'></script>
+  <script type='text/javascript' src='danwani-ytanalyser.min.js'></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script async defer src="https://apis.google.com/js/api.js"
+					onload="this.onload=function(){};handleClientLoad()"
+					onreadystatechange="if (this.readyState === 'complete') this.onload()">
+	</script>
+
+</body>
+</html>
